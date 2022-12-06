@@ -7,7 +7,7 @@ Download kit is a program for help you install program Resfinder, stringMLST and
  - Create environment python
  ```
 python3 -m venv python_env
-source resfinder_env/bin/activate 
+source python_env/bin/activate
  ```
  - Clone git and Install
  
