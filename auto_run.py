@@ -1,9 +1,11 @@
 import os
-
+os.system('sudo apt install gcc')
+os.system('sudo apt-get install libz-dev')
+os.system('sudo apt install kma')
 path_parent = os.path.dirname(os.getcwd()) #go up ONE DIRECTORY
 os.chdir(path_parent)
-os.system('mkdir workshop_tools')
-workshop_path = os.getcwd() + '/workshop_tools'
+os.system('mkdir lab_5_6')
+workshop_path = os.getcwd() + '/lab_5_6'
 os.chdir(workshop_path)
 print("Install Path : ", workshop_path)
 
@@ -12,7 +14,7 @@ print("Install Path : ", workshop_path)
 print('Starting Install Resfinder')
 os.system('pip install resfinder')
 os.system('mkdir resfinder_db_tools')
-path_resfinder_db_tools = workshop_path+"/resfinder_db_tools"
+path_resfinder_db_tools = workshop_path + "/resfinder_db_tools"
 os.chdir(path_resfinder_db_tools)
 print("your path:",os.getcwd())
 
@@ -104,5 +106,26 @@ print('stringMLST.py --predict -1 <single-end file> -s --prefix stringMLST/salmo
 print('if pair file')
 print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST/salmonella/nmb -o result_stringMLST.txt')
 print('Command for run Krocus')
-print('krocus krocus/Salmonella_enterica/ <input.fastq> -o result_krocus.txt')
+print('krocus krocus/Salmonella_enterica <input.fastq> -o result_krocus.txt')
 
+os.chdir(path_parent)
+f = open("workshop-file.txt", "w")
+f.write("==========================================================================\n")
+f.write("Please copies five lines after this, to use when open resfinder program\n")
+f.write('export CGE_RESFINDER_RESGENE_DB="'+path_resfinder_db_tools+'/resfinder_db"\n')
+f.write('export CGE_RESFINDER_RESPOINT_DB="'+path_resfinder_db_tools+'/pointfinder_db"\n')
+f.write('export CGE_DISINFINDER_DB="'+path_resfinder_db_tools+'/disinfinder_db"\n')
+f.write('export CGE_KMA="'+path_resfinder_db_tools+'/kma/kma"\n')
+f.write('export CGE_BLASTN="'+path_resfinder_db_tools+'/ncbi-blast-2.13.0+/bin/blastn"\n')
+f.write("==========================================================================\n")
+f.write('Command for run Resfinder\n')
+f.write('python -m resfinder -o result_resfinder -s "salmonella enterica" -l 0.6 -t 0.8 --acquired --point -ifq <file_name_input>\n')
+f.write('if pair file\n')
+f.write('python -m resfinder -o result_resfinder -s "salmonella enterica" -l 0.6 -t 0.8 --acquired --point -ifq file_input_*\n')
+f.write('Command for run stringMLST\n')
+f.write('stringMLST.py --predict -1 <single-end file> -s --prefix stringMLST/salmonella/nmb -o result_stringMLST.txt\n')
+f.write('if pair file\n')
+f.write('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST/salmonella/nmb -o result_stringMLST.txt\n')
+f.write('Command for run Krocus\n')
+f.write('krocus krocus/Salmonella_enterica <input.fastq> -o result_krocus.txt\n')
+f.close()
