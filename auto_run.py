@@ -54,7 +54,7 @@ print('start install stringMLST')
 os.chdir(workshop_path)
 os.system('mkdir stringMLST')
 os.system('pip install stringMLST')
-path_stringmlst = path_parent+'/stringMLST'
+path_stringmlst = workshop_path+'/stringMLST'
 os.chdir(path_stringmlst)
 print('This program will install only Salmonella enterica database')
 os.system('stringMLST.py --getMLST -P salmonella/nmb --species Salmonella enterica')
@@ -64,7 +64,7 @@ print("Install stringMLST Finish")
 print('Start install Krocus')
 os.chdir(workshop_path)
 os.system('mkdir krocus')
-path_krocus = path_parent + "/krocus"
+path_krocus = workshop_path + "/krocus"
 os.chdir(path_krocus)
 os.system('conda install krocus')
 print('This program will install only Salmonella database')
@@ -105,3 +105,4 @@ print('if pair file')
 print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST_analysis/salmonella/nmb -o result_stringMLST.txt')
 print('Command for run Krocus')
 print('krocus allele_directory <input.fastq> -o result_krocus.txt')
+
