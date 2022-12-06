@@ -68,7 +68,7 @@ path_krocus = workshop_path + "/krocus"
 os.chdir(path_krocus)
 os.system('conda install krocus')
 print('This program will install only Salmonella database')
-os.system('krocus_database_downloader  --species "Salmonella enterica" --output_directory Salmonella_enterica')
+os.system('krocus_database_downloader --species "Salmonella enterica" --output_directory Salmonella_enterica')
 print('Install Krocus finish')
 
 
@@ -104,5 +104,4 @@ print('stringMLST.py --predict -1 <single-end file> -s --prefix stringMLST_analy
 print('if pair file')
 print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST_analysis/salmonella/nmb -o result_stringMLST.txt')
 print('Command for run Krocus')
-print('krocus allele_directory <input.fastq> -o result_krocus.txt')
-
+print('krocus krocus/Salmonella_enterica <input.fastq> -o result_krocus.txt')
