@@ -100,8 +100,9 @@ print('python -m resfinder -o result_resfinder -s "salmonella enterica" -l 0.6 -
 print('if pair file')
 print('python -m resfinder -o result_resfinder -s "salmonella enterica" -l 0.6 -t 0.8 --acquired --point -ifq file_input_*')
 print('Command for run stringMLST')
-print('stringMLST.py --predict -1 <single-end file> -s --prefix stringMLST_analysis/salmonella/nmb -o result_stringMLST.txt')
+print('stringMLST.py --predict -1 <single-end file> -s --prefix stringMLST/salmonella/nmb -o result_stringMLST.txt')
 print('if pair file')
-print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST_analysis/salmonella/nmb -o result_stringMLST.txt')
+print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST/salmonella/nmb -o result_stringMLST.txt')
 print('Command for run Krocus')
-print('krocus krocus/Salmonella_enterica <input.fastq> -o result_krocus.txt')
+print('krocus krocus/Salmonella_enterica/ <input.fastq> -o result_krocus.txt')
+
