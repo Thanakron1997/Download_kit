@@ -68,7 +68,7 @@ os.chdir(workshop_path)
 os.system('mkdir krocus')
 path_krocus = workshop_path + "/krocus"
 os.chdir(path_krocus)
-os.system('conda install krocus')
+os.system('pip3 install krocus')
 print('This program will install only Salmonella database')
 os.system('krocus_database_downloader --species "Salmonella enterica" --output_directory Salmonella_enterica')
 print('Install Krocus finish')
@@ -108,7 +108,11 @@ print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p 
 print('Command for run Krocus')
 print('krocus krocus/Salmonella_enterica <input.fastq> -o result_krocus.txt')
 
-os.chdir(path_parent)
+path_Desktop = path_parent + '/Desktop'
+try:
+    os.chdir(path_Desktop)
+except:
+    os.chdir(path_parent)
 f = open("workshop-file.txt", "w")
 f.write("==========================================================================\n")
 f.write("Please copies five lines after this, to use when open resfinder program\n")
