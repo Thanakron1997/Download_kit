@@ -14,7 +14,7 @@ print("Install Path : ", workshop_path)
 print('Starting Install Resfinder')
 os.system('pip install resfinder')
 os.system('mkdir resfinder_db_tools')
-path_resfinder_db_tools = workshop_path+"/resfinder_db_tools"
+path_resfinder_db_tools = workshop_path + "/resfinder_db_tools"
 os.chdir(path_resfinder_db_tools)
 print("your path:",os.getcwd())
 
@@ -107,4 +107,3 @@ print('if pair file')
 print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST/salmonella/nmb -o result_stringMLST.txt')
 print('Command for run Krocus')
 print('krocus krocus/Salmonella_enterica <input.fastq> -o result_krocus.txt')
-
