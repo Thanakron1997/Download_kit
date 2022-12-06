@@ -4,8 +4,8 @@ os.system('sudo apt-get install libz-dev')
 os.system('sudo apt install kma')
 path_parent = os.path.dirname(os.getcwd()) #go up ONE DIRECTORY
 os.chdir(path_parent)
-os.system('mkdir workshop_tools')
-workshop_path = os.getcwd() + '/workshop_tools'
+os.system('mkdir lab_5_6')
+workshop_path = os.getcwd() + '/lab_5_6'
 os.chdir(workshop_path)
 print("Install Path : ", workshop_path)
 
@@ -107,3 +107,4 @@ print('if pair file')
 print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST/salmonella/nmb -o result_stringMLST.txt')
 print('Command for run Krocus')
 print('krocus krocus/Salmonella_enterica <input.fastq> -o result_krocus.txt')
+
