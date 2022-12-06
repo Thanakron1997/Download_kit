@@ -54,7 +54,7 @@ print('start install stringMLST')
 os.chdir(workshop_path)
 os.system('mkdir stringMLST')
 os.system('pip install stringMLST')
-path_stringmlst = workshop_path+'/stringMLST'
+path_stringmlst = workshop_path + '/stringMLST'
 os.chdir(path_stringmlst)
 print('This program will install only Salmonella enterica database')
 os.system('stringMLST.py --getMLST -P salmonella/nmb --species Salmonella enterica')
