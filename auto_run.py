@@ -2,13 +2,17 @@ import os
 
 path_parent = os.path.dirname(os.getcwd()) #go up ONE DIRECTORY
 os.chdir(path_parent)
-print("Install Path : ", path_parent)
+os.system('mkdir workshop_tools')
+workshop_path = os.getcwd() + '/workshop_tools'
+os.chdir(workshop_path)
+print("Install Path : ", workshop_path)
 
 #Install resfinder
+
 print('Starting Install Resfinder')
 os.system('pip install resfinder')
 os.system('mkdir resfinder_db_tools')
-path_resfinder_db_tools = path_parent+"/resfinder_db_tools"
+path_resfinder_db_tools = workshop_path+"/resfinder_db_tools"
 os.chdir(path_resfinder_db_tools)
 print("your path:",os.getcwd())
 
@@ -47,7 +51,7 @@ print("Install Resfinder Finish")
 
 #install stringMLST 
 print('start install stringMLST')
-os.chdir(path_parent)
+os.chdir(workshop_path)
 os.system('mkdir stringMLST')
 os.system('pip install stringMLST')
 path_stringmlst = path_parent+'/stringMLST'
@@ -58,7 +62,7 @@ print("Install stringMLST Finish")
 
 #install Krocus 
 print('Start install Krocus')
-os.chdir(path_parent)
+os.chdir(workshop_path)
 os.system('mkdir krocus')
 path_krocus = path_parent + "/krocus"
 os.chdir(path_krocus)
