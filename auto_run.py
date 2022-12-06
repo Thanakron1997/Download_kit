@@ -1,12 +1,14 @@
 import os
-path = os.getcwd()
-print("old path:", path)
+
+path_parent = os.path.dirname(os.getcwd()) #go up ONE DIRECTORY
+os.chdir(path_parent)
+print("Install Path : ", path_parent)
 
 #Install resfinder
 print('Starting Install Resfinder')
 os.system('pip install resfinder')
 os.system('mkdir resfinder_db_tools')
-path_resfinder_db_tools = path+"/resfinder_db_tools"
+path_resfinder_db_tools = path_parent+"/resfinder_db_tools"
 os.chdir(path_resfinder_db_tools)
 print("your path:",os.getcwd())
 
@@ -45,10 +47,10 @@ print("Install Resfinder Finish")
 
 #install stringMLST 
 print('start install stringMLST')
-os.chdir(path)
+os.chdir(path_parent)
 os.system('mkdir stringMLST')
 os.system('pip install stringMLST')
-path_stringmlst = path+'/stringMLST'
+path_stringmlst = path_parent+'/stringMLST'
 os.chdir(path_stringmlst)
 print('This program will install only Salmonella enterica database')
 os.system('stringMLST.py --getMLST -P salmonella/nmb --species Salmonella enterica')
@@ -56,9 +58,9 @@ print("Install stringMLST Finish")
 
 #install Krocus 
 print('Start install Krocus')
-os.chdir(path)
+os.chdir(path_parent)
 os.system('mkdir krocus')
-path_krocus = path + "/krocus"
+path_krocus = path_parent + "/krocus"
 os.chdir(path_krocus)
 os.system('conda install krocus')
 print('This program will install only Salmonella database')
@@ -70,8 +72,32 @@ print('Install Krocus finish')
 print("==========================================================================")
 print("Please copies five lines after this, to use when open resfinder program")
 print('export CGE_RESFINDER_RESGENE_DB="'+path_resfinder_db_tools+'/resfinder_db"')
+os.system('export CGE_RESFINDER_RESGENE_DB="'+path_resfinder_db_tools+'/resfinder_db"')
 print('export CGE_RESFINDER_RESPOINT_DB="'+path_resfinder_db_tools+'/pointfinder_db"')
+os.system('export CGE_RESFINDER_RESPOINT_DB="'+path_resfinder_db_tools+'/pointfinder_db"')
 print('export CGE_DISINFINDER_DB="'+path_resfinder_db_tools+'/disinfinder_db"')
+os.system('export CGE_DISINFINDER_DB="'+path_resfinder_db_tools+'/disinfinder_db"')
 print('export CGE_KMA="'+path_resfinder_db_tools+'/kma/kma"')
+os.system('export CGE_KMA="'+path_resfinder_db_tools+'/kma/kma"')
 print('export CGE_BLASTN="'+path_resfinder_db_tools+'/ncbi-blast-2.13.0+/bin/blastn"')
+os.system('export CGE_BLASTN="'+path_resfinder_db_tools+'/ncbi-blast-2.13.0+/bin/blastn"')
 print("==========================================================================")
+
+#test
+# get_test = 'wget https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR107/DRR107053/DRR107053_1.fastq.gz'
+# get_test2 = 'wget https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR107/DRR107053/DRR107053_2.fastq.gz'
+# get_test3 = 'wget https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR154/DRR154180/DRR154180_subreads.fastq.gz'
+# os.system(get_test)
+# os.system(get_test2)
+# os.system(get_test3)
+# Test command
+print('Command for run Resfinder')
+print('python -m resfinder -o result_resfinder -s "salmonella enterica" -l 0.6 -t 0.8 --acquired --point -ifq <file_name_input>')
+print('if pair file')
+print('python -m resfinder -o result_resfinder -s "salmonella enterica" -l 0.6 -t 0.8 --acquired --point -ifq file_input_*')
+print('Command for run stringMLST')
+print('stringMLST.py --predict -1 <single-end file> -s --prefix stringMLST_analysis/salmonella/nmb -o result_stringMLST.txt')
+print('if pair file')
+print('stringMLST.py --predict -1 <paired-end file 1> -2 <paired-end file 2> -p --prefix stringMLST_analysis/salmonella/nmb -o result_stringMLST.txt')
+print('Command for run Krocus')
+print('krocus allele_directory <input.fastq> -o result_krocus.txt')
