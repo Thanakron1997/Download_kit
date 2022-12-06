@@ -68,7 +68,7 @@ os.chdir(workshop_path)
 os.system('mkdir krocus')
 path_krocus = workshop_path + "/krocus"
 os.chdir(path_krocus)
-os.system('conda install krocus')
+os.system('pip3 install krocus')
 print('This program will install only Salmonella database')
 os.system('krocus_database_downloader --species "Salmonella enterica" --output_directory Salmonella_enterica')
 print('Install Krocus finish')
